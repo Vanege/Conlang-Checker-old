@@ -1,16 +1,26 @@
 export type WordRow = {
-  english: string
-  esperanto: string
-  langugu: string
-  trap: string | null
+  word: string
+  category: string
+  pos: string
+  eng: string
+  fra: string
+  rus: string
+  spa: string
+  zho: string
+  leksiliAsel: string
 }
 
 export const emptyWordRowFactory = (): WordRow => {
   return {
-    english: '',
-    esperanto: '',
-    langugu: '',
-    trap: null
+    word: "",
+    category: "",
+    pos: "",
+    eng: "",
+    fra: "",
+    rus: "",
+    spa: "",
+    zho: "",
+    leksiliAsel: ""
   }
 }
 
