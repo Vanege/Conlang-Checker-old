@@ -23,7 +23,12 @@
                       {{ match.word }}
                     </div>
                     <div class="leksili-asel-text">
-                      {{ match.leksiliAsel }}
+                      <template v-if="match.category === 'derived'">
+                        <DerivedLinks :leksili-asel="match.leksiliAsel" @searchedText="searchedText = $event" />
+                      </template>
+                      <template v-else>
+                        {{ match.leksiliAsel }}
+                      </template>
                     </div>
                   </div>
                 </template>
@@ -47,7 +52,12 @@
                       {{ match.word }}
                     </div>
                     <div class="leksili-asel-text">
-                      {{ match.leksiliAsel }}
+                      <template v-if="match.category === 'derived'">
+                        <DerivedLinks :leksili-asel="match.leksiliAsel" @searchedText="searchedText = $event" />
+                      </template>
+                      <template v-else>
+                        {{ match.leksiliAsel }}
+                      </template>
                     </div>
                   </div>
                 </template>
@@ -63,8 +73,13 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { WordRow } from '~/types'
+import DerivedLinks from '~/components/DerivedLinks.vue'
 
-@Component
+@Component({
+  components: {
+    DerivedLinks
+  }
+})
 export default class SearchBlock extends Vue {
   searchedText: string = ''
   matchesMax: number = 20
