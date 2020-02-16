@@ -17,17 +17,17 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 import { Context } from '@nuxt/types'
-import Element from '~/components/Element.vue'
-import ColorCode from '~/components/ColorCode.vue'
-import UniqueWordsCounter from '~/components/UniqueWordsCounter.vue'
+// import Element from '~/components/Element.vue'
+// import ColorCode from '~/components/ColorCode.vue'
+// import UniqueWordsCounter from '~/components/UniqueWordsCounter.vue'
 import SearchBlock from '~/components/SearchBlock.vue'
 // import { ParsedElement } from '~/types'
 
 @Component({
   components: {
-    Element,
-    ColorCode,
-    UniqueWordsCounter,
+    // Element,
+    // ColorCode,
+    // UniqueWordsCounter,
     SearchBlock
   }
 })

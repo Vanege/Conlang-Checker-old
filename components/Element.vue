@@ -33,26 +33,26 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop } from 'nuxt-property-decorator'
-import { ParsedElement, WordRow } from '~/types'
+// import { Component, Vue, Prop } from 'nuxt-property-decorator'
+// import { ParsedElement, WordRow } from '~/types'
 
-@Component
-export default class Element extends Vue {
-  @Prop() readonly element!: ParsedElement
+// @Component
+// export default class Element extends Vue {
+//   @Prop() readonly element!: ParsedElement
 
-  get wordRows(): WordRow[] { return this.$store.state.wordRows }
-  get stringToMatch(): string { return this.element.string.toLowerCase() }
-  get suffixlessStringToMatch(): string {
-    // handle the -ed- and -er- suffixes
-    return this.stringToMatch.replace(/eda$|edi$|edu$|era$|eri$|eru$/, 'a')
-  }
-  get languguMatches(): WordRow[] { return this.wordRows.filter(wr => wr.langugu === this.stringToMatch || wr.langugu === this.suffixlessStringToMatch) }
-  get trapMatches(): WordRow[] { return this.wordRows.filter(wr => wr.trap === this.stringToMatch || wr.trap === this.suffixlessStringToMatch) }
-  get hasLanguguMatches(): boolean { return this.languguMatches.length > 0 }
-  get hasTrapMatches(): boolean { return this.trapMatches.length > 0 }
+//   get wordRows(): WordRow[] { return this.$store.state.wordRows }
+//   get stringToMatch(): string { return this.element.string.toLowerCase() }
+//   get suffixlessStringToMatch(): string {
+//     // handle the -ed- and -er- suffixes
+//     return this.stringToMatch.replace(/eda$|edi$|edu$|era$|eri$|eru$/, 'a')
+//   }
+//   get languguMatches(): WordRow[] { return this.wordRows.filter(wr => wr.langugu === this.stringToMatch || wr.langugu === this.suffixlessStringToMatch) }
+//   get trapMatches(): WordRow[] { return this.wordRows.filter(wr => wr.trap === this.stringToMatch || wr.trap === this.suffixlessStringToMatch) }
+//   get hasLanguguMatches(): boolean { return this.languguMatches.length > 0 }
+//   get hasTrapMatches(): boolean { return this.trapMatches.length > 0 }
 
-  showTooltip: boolean = false
-}
+//   showTooltip: boolean = false
+// }
 </script>
 
 <style lang="scss" scoped>

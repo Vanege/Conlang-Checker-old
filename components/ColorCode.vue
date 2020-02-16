@@ -8,10 +8,10 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+// import { Component, Vue } from 'nuxt-property-decorator'
 
-@Component
-export default class ColorCode extends Vue {}
+// @Component
+// export default class ColorCode extends Vue {}
 </script>
 
 <style lang="scss" scoped>

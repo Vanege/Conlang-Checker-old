@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import { WordRow } from '~/types'
+// import { Component, Vue } from 'nuxt-property-decorator'
+// import { WordRow } from '~/types'
 
-@Component
-export default class UniqueWordsCounter extends Vue {
-  get wordRows(): WordRow[] { return this.$store.state.wordRows }
-  get languguColumn(): string[] { return this.wordRows.map(wR => wR.langugu) }
-  get languguWords(): string[] { return this.languguColumn.filter(lC => !lC.includes(' ')) }
-  get uniqueLanguguWords(): string[] { return [...new Set(this.languguWords)] }
-  get numberOfUniqueLanguguWords(): number { return this.uniqueLanguguWords.length }
-}
+// @Component
+// export default class UniqueWordsCounter extends Vue {
+//   get wordRows(): WordRow[] { return this.$store.state.wordRows }
+//   get languguColumn(): string[] { return this.wordRows.map(wR => wR.langugu) }
+//   get languguWords(): string[] { return this.languguColumn.filter(lC => !lC.includes(' ')) }
+//   get uniqueLanguguWords(): string[] { return [...new Set(this.languguWords)] }
+//   get numberOfUniqueLanguguWords(): number { return this.uniqueLanguguWords.length }
+// }
 </script>
 
 <style lang="scss" scoped>
