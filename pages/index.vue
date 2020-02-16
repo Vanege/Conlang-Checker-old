@@ -1,16 +1,16 @@
 <template>
   <div>
-    <v-textarea
+    <!-- <v-textarea
       v-model="text"
       outlined
-      placeholder="Rita ti mesagu, ki yu wanta seka. Ifo ti wordu no ba bo ti wordlistu, oro ifo ti wordu ofteni ba eroru, ti korekteru wili sowa. Hovera wordu foro finda translatu ki findeda bo ti wordlistu."
+      placeholder="Enter the text in Globasa that you want to check"
     />
     <v-sheet class="grey lighten-3">
       <Element v-for="(element, index) in parsedElements" :key="index" :element="element" />
     </v-sheet>
     <ColorCode class="mt-6" />
-    <UniqueWordsCounter />
-    <SearchBlock class="mt-6" />
+    <UniqueWordsCounter /> -->
+    <SearchBlock />
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import Element from '~/components/Element.vue'
 import ColorCode from '~/components/ColorCode.vue'
 import UniqueWordsCounter from '~/components/UniqueWordsCounter.vue'
 import SearchBlock from '~/components/SearchBlock.vue'
-import { ParsedElement } from '~/types'
+// import { ParsedElement } from '~/types'
 
 @Component({
   components: {
@@ -32,40 +32,40 @@ import { ParsedElement } from '~/types'
   }
 })
 export default class App extends Vue {
-  text: string = ''
+  // text: string = ''
 
-  get parsedElements(): ParsedElement[] {
-    const parsedElements: ParsedElement[] = []
-    let wordInConstruction: string = ''
-    for (const char of this.text) {
-      if (/[a-zA-Z]/.test(char)) {
-        wordInConstruction += char
-      } else {
-        if (wordInConstruction.length > 0) {
-          const newWordElement: ParsedElement = {
-            isAWord: true,
-            string: wordInConstruction
-          }
-          parsedElements.push(newWordElement)
-        }
-        const newElement: ParsedElement = {
-          isAWord: false,
-          string: char
-        }
-        parsedElements.push(newElement)
-        wordInConstruction = ''
-      }
-    }
-    // if a word was being built before the end, add it
-    if (wordInConstruction.length > 0) {
-      const newUnfinishedWordElement: ParsedElement = {
-        isAWord: false,
-        string: wordInConstruction
-      }
-      parsedElements.push(newUnfinishedWordElement)
-    }
-    return parsedElements
-  }
+  // get parsedElements(): ParsedElement[] {
+  //   const parsedElements: ParsedElement[] = []
+  //   let wordInConstruction: string = ''
+  //   for (const char of this.text) {
+  //     if (/[a-zA-Z]/.test(char)) {
+  //       wordInConstruction += char
+  //     } else {
+  //       if (wordInConstruction.length > 0) {
+  //         const newWordElement: ParsedElement = {
+  //           isAWord: true,
+  //           string: wordInConstruction
+  //         }
+  //         parsedElements.push(newWordElement)
+  //       }
+  //       const newElement: ParsedElement = {
+  //         isAWord: false,
+  //         string: char
+  //       }
+  //       parsedElements.push(newElement)
+  //       wordInConstruction = ''
+  //     }
+  //   }
+  //   // if a word was being built before the end, add it
+  //   if (wordInConstruction.length > 0) {
+  //     const newUnfinishedWordElement: ParsedElement = {
+  //       isAWord: false,
+  //       string: wordInConstruction
+  //     }
+  //     parsedElements.push(newUnfinishedWordElement)
+  //   }
+  //   return parsedElements
+  // }
 
   fetch({ store }: Context) {
     store.dispatch('getStoreData')
