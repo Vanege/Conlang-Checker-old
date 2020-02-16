@@ -38,12 +38,12 @@ export const actions = {
         ...(col === "1" && {word: inputValue}),
         ...(col === "2" && {category: inputValue}),
         ...(col === "3" && {pos: inputValue}),
-        ...(col === "4" && {eng: inputValue}),
+        ...(col === "4" && {eng: inputValue.replace(/\_\*\*/g, "(").replace(/\*\*\_/g, ")")}),
         ...(col === "5" && {fra: inputValue}),
         ...(col === "6" && {rus: inputValue}),
         ...(col === "7" && {spa: inputValue}),
         ...(col === "8" && {zho: inputValue}),
-        ...(col === "9" && {leksiliAsel: inputValue})
+        ...(col === "9" && {leksiliAsel: inputValue.replace(/\*\*/g, "\"")})
       }
       const wordRow = wordRows[row]
       wordRows[row] = isDefined(wordRow) ? {...wordRow, ...wordRowPatch } : {...emptyWordRowFactory(), ...wordRowPatch}
